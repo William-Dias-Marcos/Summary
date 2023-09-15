@@ -5,13 +5,16 @@
     <h1>Seu Resumo</h1>
   </section>
 
-    <form>
-      <input type="url" placeholder="URL do vídeo">
-      <button title="Resumir">
-        <i class="ph ph-play"></i>
-      </button>
-    </form>
+  <form #f="ngForm" (ngSubmit)="convertShorts(f.value.url)">
+    <input placeholder="URL do vídeo" required name="url" ngModel
+      pattern="^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+"
+    >
+
+    <button title="Resumir" type="submit" [disabled]="!f.valid">
+      <i class="ph ph-play"></i>
+    </button>
+  </form>
   
-    <h2>Resumo</h2>
-    <p class="placeholder">Escolha um short para resumir...</p>
+  <h2>Resumo</h2>
+  <p class="placeholder">{{ summary }}</p>
 </main>

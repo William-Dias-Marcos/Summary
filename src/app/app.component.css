@@ -76,3 +76,6 @@ form > button i{
   user-select: none;
 }
 
+.ng-invalid .ng-touched{
+  border: solid 1px red;
+}
